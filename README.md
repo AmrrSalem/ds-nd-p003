@@ -33,8 +33,8 @@ Follow these steps to set up the project locally.
 
 ```bash
 # Clone repository
-git clone <your-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/AmrrSalem/ds-nd-p003.git
+cd ds-nd-p003
 
 # Create virtual environment
 python -m venv venv
