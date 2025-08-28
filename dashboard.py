@@ -1,12 +1,6 @@
 """
 NLP Pipeline Dashboard
 
-- Reads CSV path from env var DATA_CSV (set it at CLI when running uvicorn)
-- On the homepage, automatically samples 20 rows from DATA_CSV and shows predictions
-- A single "Predict 20 random rows" action re-samples 20 from the same CSV
-- Artifacts (metrics + images) are displayed directly inline (no "open" buttons)
-- Removed: upload flow, config link/buttons, pr_curve/confusion_matrix buttons, /sample route
-
 Run
 ---
 DATA_CSV=/absolute/path/to/data.csv ARTIFACTS_DIR=artifacts uvicorn dashboard:app --reload --port 7860
