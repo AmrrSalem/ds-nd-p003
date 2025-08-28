@@ -1,205 +1,46 @@
-# End-to-End NLP Pipeline with FastAPI Dashboard
----
-## **Project Description**
-
-This project delivers an **end-to-end Natural Language Processing (NLP) pipeline** with a built-in **FastAPI dashboard** for monitoring, evaluation, and prediction. It automates the complete workflow of text-based machine learning tasks, from raw data ingestion to trained model deployment.
-
-### **Key Features**
-
-* **Automated Preprocessing**
-
-  * Detects text, categorical, and numeric columns automatically.
-  * Cleans and normalizes text (regex-based or spaCy-based lemmatization).
-  * Supports TF–IDF vectorization, optional character n-grams, POS/NER counts, and basic text statistics.
-
-* **Flexible Training**
-
-  * Auto-detects classification vs regression targets.
-  * Configurable pipeline with cross-validated hyperparameter tuning (`RandomizedSearchCV`).
-  * Saves all training artifacts: model (`model.pkl`), metrics (`metrics.json`), and run configuration (`run_config.json`).
-
-* **Evaluation & Reporting**
-
-  * Calculates standard metrics (Accuracy, F1, ROC-AUC, R², MAE, RMSE, etc.).
-  * Generates plots (confusion matrix, PR curve, etc.).
-  * Logs step-wise runtime and total training time.
-
-* **FastAPI Dashboard**
-
-  * Serves artifacts and metrics through a lightweight, dark-themed UI.
-  * Displays inline metrics, plots, and predictions from 20 random samples of the training CSV.
-  * Provides a one-click option to re-sample and predict on new subsets.
-
-* **CLI Integration**
-
-  * `quick_main_full.py` enables a **one-command, full-feature run** with lemmatization, POS/NER features, and text statistics enabled.
-  * Simple configuration via command-line arguments (`--csv`, `--target`, `--artifacts`, etc.).
-
-### **Technology Stack**
-
-* **ML/NLP**: scikit-learn, spaCy, joblib, numpy, pandas, matplotlib, scipy
-* **Web/API**: FastAPI, Uvicorn
-* **Utilities**: argparse, dataclasses, json, regex
----
-
-## **Getting Started**
-
-Follow these instructions to set up the project locally and run both the **training pipeline** and the **FastAPI dashboard**.
-
----
-
-### **1. Clone the Repository**
-
-```bash
-git clone <your-repo-url>
-cd <your-repo-folder>
-```
-
----
-
-### **2. Create and Activate a Virtual Environment**
-
-It is recommended to use a virtual environment for dependency isolation.
-
-```bash
-# Create virtual environment (Python 3.10+ recommended)
-python -m venv venv
-
-# Activate (Linux/Mac)
-source venv/bin/activate
-
-# Activate (Windows)
-venv\Scripts\activate
-```
-
----
-
-### **3. Install Dependencies**
-
-Install all required Python packages:
-
-```bash
-pip install -r requirements.txt
-```
-
-If you don’t have `requirements.txt` yet, install manually:
-
-```bash
-pip install fastapi uvicorn python-multipart scikit-learn spacy joblib numpy pandas matplotlib scipy
-```
-
-Then download the spaCy English model:
-
-```bash
-python -m spacy download en_core_web_sm
-```
-
----
-
-### **4. Prepare Your Data**
-
-Place your dataset (CSV file) in the project root or provide its path.
-Example:
-
-```
-data.csv
-```
-
----
-
-### **5. Train the Model (Full Pipeline)**
-
-Run the **one-command training script**:
-
-```bash
-python quick_main_full.py --csv data.csv --target <target_column> --artifacts artifacts
-```
-
-Options:
-
-* `--target` : Specify target column (omit to auto-detect).
-* `--artifacts` : Directory to save model and metrics (default: `artifacts/`).
-* `--clean` : Wipe old artifacts before training.
-* `--cv` : Number of cross-validation folds (default: 3).
-* `--n-iter` : Number of randomized search iterations (default: 10).
-
----
-
-### **6. Launch the FastAPI Dashboard**
-
-Once training is complete, start the dashboard:
-
-```bash
-DATA_CSV=./data.csv ARTIFACTS_DIR=artifacts uvicorn dashboard:app --reload --port 7860
-```
-
-Then open in your browser:
-
-```
-http://127.0.0.1:7860
-```
-
-The dashboard will show:
-
-* Metrics from training
-* Artifacts (plots, confusion matrix, PR curve)
-* Predictions on 20 random samples from your CSV
-
----
-
-### **7. Verify Installation**
-
-Check health endpoint:
-
-```bash
-curl http://127.0.0.1:7860/healthz
-```
-
-Expected response:
-
-```
-ok
-```
-### Dependencies
-
-```
-Examples here
-```
-
-### Installation
-
-Step by step explanation of how to get a dev environment running.
-
-List out the steps
-
-```
-Give an example here
-```
-
-## Testing
-
-Explain the steps needed to run any automated tests
-
-### Break Down Tests
-
-Explain what each test does and why
-
-```
-Examples here
-```
-
-## Project Instructions
-
-This section should contain all the student deliverables for this project.
-
-## Built With
-
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
-
-## License
-
-[License](LICENSE.txt)
+Copyright © 2012 - 2020, Udacity, Inc.
+
+Udacity hereby grants you a license in and to the Educational Content, including
+but not limited to homework assignments, programming assignments, code samples,
+and other educational materials and tools (as further described in the Udacity
+Terms of Use), subject to, as modified herein, the terms and conditions of the
+Creative Commons Attribution-NonCommercial- NoDerivs 3.0 License located at
+http://creativecommons.org/licenses/by-nc-nd/4.0 and successor locations for
+such license (the "CC License") provided that, in each case, the Educational
+Content is specifically marked as being subject to the CC License.
+
+Udacity expressly defines the following as falling outside the definition of
+"non-commercial":
+(a) the sale or rental of (i) any part of the Educational Content, (ii) any
+    derivative works based at least in part on the Educational Content, or (iii)
+    any collective work that includes any part of the Educational Content;
+(b) the sale of access or a link to any part of the Educational Content without
+    first obtaining informed consent from the buyer (that the buyer is aware
+    that the Educational Content, or such part thereof, is available at the
+    Website free of charge);
+(c) providing training, support, or editorial services that use or reference the
+    Educational Content in exchange for a fee;
+(d) the sale of advertisements, sponsorships, or promotions placed on the
+    Educational Content, or any part thereof, or the sale of advertisements,
+    sponsorships, or promotions on any website or blog containing any part of
+    the Educational Material, including without limitation any "pop-up
+    advertisements";
+(e) the use of Educational Content by a college, university, school, or other
+    educational institution for instruction where tuition is charged; and
+(f) the use of Educational Content by a for-profit corporation or non-profit
+    entity for internal professional development or training.
+
+THE SERVICES AND ONLINE COURSES (INCLUDING ANY CONTENT) ARE PROVIDED "AS IS" AND
+"AS AVAILABLE" WITH NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EITHER
+EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. YOU
+ASSUME TOTAL RESPONSIBILITY AND THE ENTIRE RISK FOR YOUR USE OF THE SERVICES,
+ONLINE COURSES, AND CONTENT. WITHOUT LIMITING THE FOREGOING, WE DO NOT WARRANT
+THAT (A) THE SERVICES, WEBSITES, CONTENT, OR THE ONLINE COURSES WILL MEET YOUR
+REQUIREMENTS OR EXPECTATIONS OR ACHIEVE THE INTENDED PURPOSES, (B) THE WEBSITES
+OR THE ONLINE COURSES WILL NOT EXPERIENCE OUTAGES OR OTHERWISE BE UNINTERRUPTED,
+TIMELY, SECURE OR ERROR-FREE, (C) THE INFORMATION OR CONTENT OBTAINED THROUGH
+THE SERVICES, SUCH AS CHAT ROOM SERVICES, WILL BE ACCURATE, COMPLETE, CURRENT,
+ERROR- FREE, COMPLETELY SECURE OR RELIABLE, OR (D) THAT DEFECTS IN OR ON THE
+SERVICES OR CONTENT WILL BE CORRECTED. YOU ASSUME ALL RISK OF PERSONAL INJURY,
+INCLUDING DEATH AND DAMAGE TO PERSONAL PROPERTY, SUSTAINED FROM USE OF SERVICES.
