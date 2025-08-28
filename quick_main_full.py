@@ -1,12 +1,3 @@
-"""
-quick_main_full.py — One-button, FULL NLP run
-
-Always enables: lemmatization, POS/NER counts, basic text stats.
-Uses your pipeline’s TF–IDF auto-sizing when max_features <= 0.
-Saves model + metrics + run_config.json (for the FastAPI dashboard).
-Includes timers for each step and total runtime in minutes.
-"""
-
 from __future__ import annotations
 
 import argparse
