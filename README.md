@@ -68,6 +68,8 @@ This will:
 
 ```bash
 DATA_CSV=./data.csv ARTIFACTS_DIR=artifacts uvicorn dashboard:app --reload --port 7860
+#For this project name data file data.csv and
+DATA_CSV=./data.csv ARTIFACTS_DIR=artifacts uvicorn dashboard:app --reload --port 7860
 ```
 
 Open in your browser:  
