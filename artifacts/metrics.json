@@ -1,0 +1,15 @@
+{
+  "task": "classification",
+  "target": "Recommended IND",
+  "target_detection": {
+    "strategy": "provided",
+    "n_unique": 2,
+    "dtype": "int64"
+  },
+  "accuracy": 0.717,
+  "precision_macro": 0.6049771979100601,
+  "recall_macro": 0.6431894092813795,
+  "f1_macro": 0.611562001155706,
+  "avg_precision": 0.8649201855246991,
+  "roc_auc": 0.6533777359603606
+}
