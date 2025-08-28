@@ -57,6 +57,9 @@ python -m spacy download en_core_web_sm
 
 ```bash
 python quick_main_full.py --csv data.csv --target target_column --artifacts artifacts
+# Here name data file data.csv and
+python quick_main_full.py --csv data.csv --target "Recommended IND" --clean --cv 3 --n-iter 10
+
 ```
 
 This will:  
