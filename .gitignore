@@ -1,0 +1,6 @@
+".venv/"            
+"artifacts/"        
+"__pycache__/"      
+"*.pyc"             
+"model.pkl"           # optional
+".ipynb_checkpoints/" 
