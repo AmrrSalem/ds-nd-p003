@@ -1,8 +1,6 @@
 """
-NLP Pipeline Dashboard (Minimal, "auto-20" from CSV)
+NLP Pipeline Dashboard
 
-What changed (per request)
---------------------------
 - Reads CSV path from env var DATA_CSV (set it at CLI when running uvicorn)
 - On the homepage, automatically samples 20 rows from DATA_CSV and shows predictions
 - A single "Predict 20 random rows" action re-samples 20 from the same CSV
